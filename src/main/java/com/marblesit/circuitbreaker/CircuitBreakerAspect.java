@@ -112,6 +112,12 @@ public class CircuitBreakerAspect {
 		}
 	}
 
+	/**
+	 * ¶ÏÂ·Æ÷ÅäÖÃ ²Î¿¼ http://hot66hot.iteye.com/blog/2155036
+	 * @param joinPoint
+	 * @param cb
+	 * @return
+	 */
 	private HystrixCommand.Setter getCommandSetter(ProceedingJoinPoint joinPoint, CircuitBreaker cb) {
 		String name = getHystrixGroupName(joinPoint, cb);
 
