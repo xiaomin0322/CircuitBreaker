@@ -81,4 +81,20 @@ public class HystrixCommandTest {
 		Throwable t = service.exceptionWithFallbackIncludingException(TEST_STR);
 		assertTrue(t instanceof MyRuntimeException);
 	}
+	
+	@Test
+	public void testThreadPoolProperties() throws Exception {
+		for(int i=0;i<10;i++){
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					System.out.println(service.get(TEST_STR));					
+				}
+			}).start();;
+			
+		}
+		
+		Thread.sleep(10000);
+	}
+	
 }
