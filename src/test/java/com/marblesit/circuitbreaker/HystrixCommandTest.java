@@ -7,15 +7,17 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/applicationConfig.xml"})
-public class CircuitBreakerTest {
+public class HystrixCommandTest {
 
 	private static final String TEST_STR = "TEST_STR";
 	@Autowired
+	@Qualifier(value="hystrixCommandServiceImpl")
 	private Service service;
 
 	@Test

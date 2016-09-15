@@ -135,7 +135,8 @@ public class CircuitBreakerAspect {
 		return HystrixCommand.Setter.
 					withGroupKey(HystrixCommandGroupKey.Factory.asKey(name)).
 					andCommandKey(HystrixCommandKey.Factory.asKey(name)).
-					andCommandPropertiesDefaults(properties);
+					andCommandPropertiesDefaults(properties)
+					;
 	}
 
 	private String getHystrixGroupName(final ProceedingJoinPoint joinPoint, CircuitBreaker cb) {
